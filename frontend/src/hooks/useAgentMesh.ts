@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { io, Socket } from 'socket.io-client';
 import type { AgentState, Message } from '../types';
 
-const SOCKET_URL = 'http://localhost:3002';
+const SOCKET_URL = import.meta.env.PROD ? '/' : 'http://localhost:3002';
 
 export const useAgentMesh = () => {
     const [socket, setSocket] = useState<Socket | null>(null);

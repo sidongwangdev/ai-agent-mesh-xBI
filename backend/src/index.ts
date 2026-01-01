@@ -1,4 +1,5 @@
 import express from 'express';
+import path from 'path';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
 import cors from 'cors';
@@ -17,15 +18,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.json({
-        status: 'online',
-        system: 'AI Agent Mesh xBI',
-        port: 3002,
-        endpoints: {
-            socket: 'ws://localhost:3002'
-        }
-    });
+// Serve static frontend files
+const frontendDist = path.join(__dirname, '../../frontend/dist');
+app.use(express.static(frontendDist));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(frontendDist, 'index.html'));
 });
 
 const httpServer = createServer(app);
