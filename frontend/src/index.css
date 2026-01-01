@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --color-glass: rgba(255, 255, 255, 0.03);
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+}
+
+@layer base {
+  body {
+    @apply bg-[#020617] text-slate-100 min-h-screen font-sans antialiased;
+  }
+}
+
+@utility glass {
+  background: var(--color-glass);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--color-glass-border);
+}
+
+@utility scrollbar-hide {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.agent-card {
+  @apply glass transition-all duration-500 hover:scale-[1.02];
+}
+
+.pulse {
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(1);
+  }
+
+  50% {
+    opacity: .3;
+    transform: scale(0.95);
+    filter: brightness(0.8);
+  }
+}
+
+::selection {
+  background: rgba(37, 99, 235, 0.3);
+  color: white;
+}
