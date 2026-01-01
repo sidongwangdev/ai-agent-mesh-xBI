@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Terminal, Clock, Shield, Search } from 'lucide-react';
+import { Terminal, Clock } from 'lucide-react';
 import type { Message } from '../types';
 
 interface ActivityViewProps {
@@ -36,15 +36,15 @@ export const ActivityView = ({ messages }: ActivityViewProps) => {
                             transition={{ delay: i * 0.05 }}
                             className="glass p-5 rounded-2xl border-white/[0.03] flex gap-4 hover:bg-white/[0.02] transition-colors group"
                         >
-                            <div className={`p-3 rounded-xl h-fit ${msg.sender === 'USER' ? 'bg-slate-800' : 'bg-blue-600/20 text-blue-400'
+                            <div className={`p-3 rounded-xl h-fit ${msg.from === 'USER' ? 'bg-slate-800' : 'bg-blue-600/20 text-blue-400'
                                 }`}>
-                                {msg.sender === 'USER' ? <Clock size={20} /> : <Terminal size={20} />}
+                                {msg.from === 'USER' ? <Clock size={20} /> : <Terminal size={20} />}
                             </div>
                             <div className="flex-1 min-w-0">
                                 <div className="flex items-center justify-between mb-1">
-                                    <span className={`text-[10px] font-black uppercase tracking-widest ${msg.sender === 'USER' ? 'text-slate-500' : 'text-blue-500'
+                                    <span className={`text-[10px] font-black uppercase tracking-widest ${msg.from === 'USER' ? 'text-slate-500' : 'text-blue-500'
                                         }`}>
-                                        {msg.sender}
+                                        {msg.from}
                                     </span>
                                     <span className="text-[10px] text-slate-600 font-mono">
                                         {new Date(msg.timestamp).toLocaleTimeString()}

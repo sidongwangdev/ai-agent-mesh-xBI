@@ -16,6 +16,8 @@ export interface AgentState {
     currentTask?: string;
 }
 
+export type Agent = AgentState;
+
 export interface Artifact {
     type: 'CHART' | 'TABLE' | 'TEXT';
     chartType?: string;

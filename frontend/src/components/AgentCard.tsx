@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Bot, CheckCircle2, AlertCircle, Loader2, Database, BarChart3, ShieldCheck, Monitor, Download } from 'lucide-react';
+import { Bot, AlertCircle, Loader2, Database, BarChart3, ShieldCheck, Monitor, Download } from 'lucide-react';
 import type { AgentState } from '../types';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';

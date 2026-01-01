@@ -1,5 +1,4 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { Bell, ShieldCheck, ShieldAlert, Cpu, Heart, Activity } from 'lucide-react';
+import { ShieldCheck, Cpu, Heart, Activity } from 'lucide-react';
 import type { Agent } from '../types';
 
 interface AlertsViewProps {
@@ -7,7 +6,6 @@ interface AlertsViewProps {
 }
 
 export const AlertsView = ({ agents }: AlertsViewProps) => {
-    const healthyCount = agents.filter(a => a.status === 'IDLE' || a.status === 'BUSY').length;
 
     return (
         <div className="flex-[1.4] flex flex-col gap-8 overflow-y-auto pr-4 scrollbar-hide">

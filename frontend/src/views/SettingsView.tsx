@@ -1,5 +1,4 @@
-import { motion } from 'framer-motion';
-import { Settings, Shield, Zap, Globe, Cpu, Sliders, Save } from 'lucide-react';
+import { Shield, Cpu, Save } from 'lucide-react';
 
 export const SettingsView = () => {
     return (
